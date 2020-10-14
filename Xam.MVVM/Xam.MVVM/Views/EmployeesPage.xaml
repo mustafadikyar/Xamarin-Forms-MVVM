@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels ="clr-namespace:Xam.MVVM.ViewModels"
+             x:Class="Xam.MVVM.Views.EmployeesPage"
+             x:Name="pgEmployees">
+    <ContentPage.BindingContext>
+        <viewmodels:EmployeesPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <ListView x:Name="lstEmployee" HasUnevenRows="True" ItemsSource="{Binding Employees}" IsPullToRefreshEnabled="True" RefreshCommand="RefreshCommand" IsRefreshing="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}" Detail="{Binding Surname}">
+                            <TextCell.ContextActions>
+                                <!--<MenuItem Text="Delete" Clicked="OnDelete_Clicked" IsDestructive="True" CommandParameter="{Binding}"/>
+                                <MenuItem Text="Update" Clicked="OnUpdate_Clicked" CommandParameter="{Binding}"/>-->
+                                <MenuItem Text="Delete" CommandParameter="{Binding}" Command="{Binding Path=BindingContext.DeleteCommand, Source={x:Reference pgEmployees}}" IsDestructive="True" />
+                                <MenuItem Text="Update" CommandParameter="{Binding}" Command="{Binding Path=BindingContext.UpdateCommand, Source={x:Reference pgEmployees}}"/>
+                            </TextCell.ContextActions>
+                        </TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
