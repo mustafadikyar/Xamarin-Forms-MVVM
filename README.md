@@ -5,7 +5,6 @@ MVVM Approach Sample Project
 
 
 Xamarin Forms'da MVVM yaklaşımının nasıl uygulandığını anlatan örnek çalışma.
-Geliştirmesine devam etmekteyim. Ne zaman biter sorusunun cevabıysa ne zaman ki MVVM tarafında yeni birşey görmem veya bulamam o zaman son halini almış olur.
 
 //TO DO : Makalesi pek yakında. Anlatmayı planladığım konu başlıkları :
 - Command Kullanımı
